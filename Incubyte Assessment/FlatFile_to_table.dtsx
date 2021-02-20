@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{427F2B04-DE57-4D70-8899-DDBFCDC0FB51}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{E35F75F7-6441-41E0-A83C-4CB428338952}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -136,16 +136,6 @@
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorksDW2019]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{6DF447BF-C6F4-4F95-8165-FAA819C6CD9D}"
-      DTS:ObjectName="localhost.AdventureWorksDW2019">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksDW2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -163,6 +153,379 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Direct load from source file to table\Flatfie Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="16393"
+              name="Flatfie Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Direct load from source file to table\Flatfie Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[H]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[H]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[H]"
+                      name="H"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Name]"
+                      name="Customer_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Id]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Id]"
+                      name="Customer_Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Open_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Open_Date]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Open_Date]"
+                      name="Open_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Last_Consulted_Date]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]"
+                      name="Last_Consulted_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Vaccination_Id]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]"
+                      name="Vaccination_Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Dr_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Dr_Name]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Dr_Name]"
+                      name="Dr_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[DOB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[DOB]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[DOB]"
+                      name="DOB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Is_Active]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
+                      length="50"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Is_Active]"
+                      name="Is_Active"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[H]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="H" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Open_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Open_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Last_Consulted_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Last_Consulted_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Vaccination_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Vaccination_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Dr_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Dr_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[DOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DOB" />
+                    <externalMetadataColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Is_Active" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Direct load from source file to table\Load Master_Cardholders"
               componentClassID="Microsoft.OLEDBDestination"
@@ -222,8 +585,8 @@
               <connections>
                 <connection
                   refId="Package\Direct load from source file to table\Load Master_Cardholders.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorksDW2019]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorksDW2019]"
+                  connectionManagerID="{6DF447BF-C6F4-4F95-8165-FAA819C6CD9D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorksDW2019]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -242,7 +605,7 @@
                       cachedLength="50"
                       cachedName="State"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[State]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[State]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Country]"
                       cachedCodepage="1252"
@@ -250,7 +613,7 @@
                       cachedLength="50"
                       cachedName="Country"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Country]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Country]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Customer_Name]"
                       cachedCodepage="1252"
@@ -258,7 +621,7 @@
                       cachedLength="50"
                       cachedName="Customer_Name"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Customer Name]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Name]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Name]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Customer_Id]"
                       cachedCodepage="1252"
@@ -266,7 +629,7 @@
                       cachedLength="50"
                       cachedName="Customer_Id"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Customer Id]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Id]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Customer_Id]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Open_Date]"
                       cachedCodepage="1252"
@@ -274,7 +637,7 @@
                       cachedLength="50"
                       cachedName="Open_Date"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Customer Open Date]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Open_Date]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Open_Date]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Last_Consulted_Date]"
                       cachedCodepage="1252"
@@ -282,7 +645,7 @@
                       cachedLength="50"
                       cachedName="Last_Consulted_Date"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Last Consulted Date]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Vaccination_Id]"
                       cachedCodepage="1252"
@@ -290,7 +653,7 @@
                       cachedLength="50"
                       cachedName="Vaccination_Id"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Vaccination Type]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Dr_Name]"
                       cachedCodepage="1252"
@@ -298,7 +661,7 @@
                       cachedLength="50"
                       cachedName="Dr_Name"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Doctor Consulted]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Dr_Name]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Dr_Name]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[DOB]"
                       cachedCodepage="1252"
@@ -306,7 +669,7 @@
                       cachedLength="50"
                       cachedName="DOB"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Date Of Birth]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[DOB]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[DOB]" />
                     <inputColumn
                       refId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].Columns[Is_Active]"
                       cachedCodepage="1252"
@@ -314,7 +677,7 @@
                       cachedLength="50"
                       cachedName="Is_Active"
                       externalMetadataColumnId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input].ExternalColumns[Active Customer]"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Is_Active]" />
+                      lineageId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output].Columns[Is_Active]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -412,398 +775,25 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Direct load from source file to table\Source"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="16393"
-              name="Source"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Direct load from source file to table\Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
-                  name="FlatFileConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[H]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[H]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[H]"
-                      name="H"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Name]"
-                      name="Customer_Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Id]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Id]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Customer_Id]"
-                      name="Customer_Id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Open_Date]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Open_Date]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Open_Date]"
-                      name="Open_Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Last_Consulted_Date]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Last_Consulted_Date]"
-                      name="Last_Consulted_Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Vaccination_Id]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Vaccination_Id]"
-                      name="Vaccination_Id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Dr_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Dr_Name]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Dr_Name]"
-                      name="Dr_Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[State]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[State]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[State]"
-                      name="State"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Country]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Country]"
-                      name="Country"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[DOB]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[DOB]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[DOB]"
-                      name="DOB"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Is_Active]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
-                      length="50"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].Columns[Is_Active]"
-                      name="Is_Active"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[H]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="H" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer_Name" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Customer_Id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer_Id" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Open_Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Open_Date" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Last_Consulted_Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Last_Consulted_Date" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Vaccination_Id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Vaccination_Id" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Dr_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Dr_Name" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[State]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="State" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Country" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[DOB]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="DOB" />
-                    <externalMetadataColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Is_Active" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output]"
-                  isErrorOut="true"
-                  name="Flat File Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
               refId="Package\Direct load from source file to table.Paths[Flat File Source Output]"
               endId="Package\Direct load from source file to table\Load Master_Cardholders.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Direct load from source file to table\Source.Outputs[Flat File Source Output]" />
+              startId="Package\Direct load from source file to table\Flatfie Source.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate immediate table"
+      DTS:refId="Package\Truncate intermediate table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{E6AE95AB-C6A0-4529-BBC6-4D21AB6D955B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate immediate table"
+      DTS:ObjectName="Truncate intermediate table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -819,7 +809,7 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{49247B82-C9EA-47D1-B3BF-F0AE4AC80949}"
-      DTS:From="Package\Truncate immediate table"
+      DTS:From="Package\Truncate intermediate table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Direct load from source file to table" />
@@ -841,12 +831,12 @@
           Id="Package\Direct load from source file to table"
           TopLeft="234,168" />
         <NodeLayout
-          Size="203,42"
-          Id="Package\Truncate immediate table"
+          Size="213,42"
+          Id="Package\Truncate intermediate table"
           TopLeft="256,69" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="357.75,111">
+          TopLeft="360.25,111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -875,8 +865,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="114,42"
-          Id="Package\Direct load from source file to table\Source"
+          Size="147,42"
+          Id="Package\Direct load from source file to table\Flatfie Source"
           TopLeft="206,46" />
         <NodeLayout
           Size="206,42"
@@ -884,13 +874,13 @@
           TopLeft="236,201" />
         <EdgeLayout
           Id="Package\Direct load from source file to table.Paths[Flat File Source Output]"
-          TopLeft="263,88">
+          TopLeft="279.5,88">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="76,113"
+              EndConnector="59.5,113"
               Start="0,0"
-              End="76,105.5">
+              End="59.5,105.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -901,13 +891,13 @@
                     Point2="0,56.5"
                     Point3="4,56.5" />
                   <mssgle:LineSegment
-                    End="72,56.5" />
+                    End="55.5,56.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="72,56.5"
-                    Point2="76,56.5"
-                    Point3="76,60.5" />
+                    Point1="55.5,56.5"
+                    Point2="59.5,56.5"
+                    Point3="59.5,60.5" />
                   <mssgle:LineSegment
-                    End="76,105.5" />
+                    End="59.5,105.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
