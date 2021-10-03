@@ -1,4 +1,4 @@
-# Incubyte Data Engineer Assessment
+# Data Engineering
 
 # Understanding of the exercise scenario and assumptions
 1. Data is loaded from a flatfile to an intermediate table as is, which is a full load. (Truncate and load each time)
